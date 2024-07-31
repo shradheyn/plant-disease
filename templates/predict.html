@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Recognition</title>
+</head>
+<body>
+    <h1>Disease Recognition</h1>
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" id="file" name="file" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+    {% if prediction %}
+        <h2>{{ prediction }}</h2>
+        <img src="{{ url_for('static', filename=image_path.split('/')[-1]) }}" alt="Uploaded Image" style="width:100%;">
+        {% if details %}
+            <h3>Details</h3>
+            <p><strong>Crop:</strong> {{ details['crop'] }}</p>
+            <p><strong>Disease:</strong> {{ details['disease'] }}</p>
+            <p><strong>Cause:</strong> {{ details['cause'] }}</p>
+            <h4>Precautions:</h4>
+            <ul>
+                {% for precaution in details['precautions'] %}
+                    <li>{{ precaution }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
