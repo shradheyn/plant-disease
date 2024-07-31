@@ -456,7 +456,7 @@ def predict():
     prediction = class_names[result_index]
     disease_details = disease_dic.get(prediction, {})
     
-    return render_template('result.html', prediction=prediction, details=disease_details)
+    return render_template('predict.html', prediction=prediction, details=disease_details)
 
 def model_prediction(test_image_path):
     image = load_img(test_image_path, target_size=(128, 128))
