@@ -1,28 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plant Disease Recognition System</title>
-</head>
-<body>
-    <h1>PLANT DISEASE RECOGNITION SYSTEM</h1>
-    <p>Welcome to the Plant Disease Recognition System! 🌿🔍</p>
-    <p>Our mission is to help in identifying plant diseases efficiently. Upload an image of a plant, and our system will analyze it to detect any signs of diseases. Together, let's protect our crops and ensure a healthier harvest!</p>
-    <h2>How It Works</h2>
-    <ol>
-        <li><strong>Upload Image:</strong> Go to the <a href="{{ url_for('predict') }}">Disease Recognition</a> page and upload an image of a plant with suspected diseases.</li>
-        <li><strong>Analysis:</strong> Our system will process the image using advanced algorithms to identify potential diseases.</li>
-        <li><strong>Results:</strong> View the results and recommendations for further action.</li>
-    </ol>
-    <h2>Why Choose Us?</h2>
-    <ul>
-        <li><strong>Accuracy:</strong> Our system utilizes state-of-the-art machine learning techniques for accurate disease detection.</li>
-        <li><strong>User-Friendly:</strong> Simple and intuitive interface for seamless user experience.</li>
-        <li><strong>Fast and Efficient:</strong> Receive results in seconds, allowing for quick decision-making.</li>
-    </ul>
-    <h2>Get Started</h2>
-    <p>Click on the <a href="{{ url_for('predict') }}">Disease Recognition</a> page in the sidebar to upload an image and experience the power of our Plant Disease Recognition System!</p>
-    <h2>About Us</h2>
-</body>
+  <head>
+    <title>Plant Disease Recognition</title>
+  </head>
+  <body>
+    <h1>Plant Disease Recognition</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required>
+      <button type="submit">Predict</button>
+    </form>
+  </body>
 </html>
