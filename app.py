@@ -64,13 +64,10 @@ def predict():
         'Tomato___healthy'
     ]
     
-    disease_details = disease_dic.get(class_names[result_index], {})
-    response = {
-        "prediction": class_names[result_index],
-        "details": disease_details
-    }
+    prediction = class_names[result_index]
+    disease_details = disease_dic.get(prediction, {})
     
-    return jsonify(response)
+    return render_template('result.html', prediction=prediction, details=disease_details)
 
 def model_prediction(test_image_path):
     image = load_img(test_image_path, target_size=(128, 128))
