@@ -2,3 +2,7 @@ Flask
 tensorflow
 numpy
 Werkzeug
+gunicorn
+requests
+Jinja2
+markupsafe
